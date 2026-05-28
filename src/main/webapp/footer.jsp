@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<style>
-    footer {
-        background: #333333;
-        padding: 15px;
-        margin-top: 40px;
-        color: white;
-        text-align: center;
-        font-size: 14px;
-    }
-</style>
-<footer>
-    2026 Location de Voitures. Tous droits réservés.
+<footer style="background: var(--noir); padding: 2rem; text-align: center; margin-top: auto;">
+    <div style="width: 30px; height: 1px; background: var(--or); margin: 0 auto 1rem;"></div>
+    <div style="font-family: 'Playfair Display', serif; color: var(--blanc); font-size: 1.125rem; letter-spacing: 2px; margin-bottom: 0.5rem;">AysiCar</div>
+    <div style="font-size: 0.75rem; color: var(--gris); letter-spacing: 1px; font-weight: 300;">© 2026 — Tous droits réservés</div>
 </footer>

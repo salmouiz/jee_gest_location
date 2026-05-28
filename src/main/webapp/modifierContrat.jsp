@@ -2,11 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Modifier un contrat</title>
-    <link rel="stylesheet" href="style4.css">
-</head>
+<head><meta charset="UTF-8"><title>AysiCar | Modifier contrat</title></head>
 <body>
 <%@ include file="header.jsp" %>
 <%
@@ -19,48 +15,51 @@
     if (clients == null) clients = new ArrayList<>();
     if (voitures == null) voitures = new ArrayList<>();
 %>
-<div class="container">
-    <h1>Modifier le contrat <%= ct.getId() %></h1>
-    <form action="ContratModifier" method="post">
-        <input type="hidden" name="id" value="<%= ct.getId() %>">
-        <div class="grid-container">
-            <div class="champs">
-                <label>Date Début</label><br>
-                <input type="date" name="dateDebut" value="<%= ct.getDateDebut() %>">
+<div class="main-content">
+    <div class="page-label">Gestion Contrats</div>
+    <h1 class="page-title">Modifier Contrat #<%= ct.getId() %></h1>
+    <div class="form-card">
+        <form action="ContratModifier" method="post">
+            <input type="hidden" name="id" value="<%= ct.getId() %>">
+            <div class="form-section">
+                <div class="section-title"><i class="fas fa-calendar"></i> Période de location</div>
+                <div class="form-grid">
+                    <div class="field"><label>Date Début</label><input type="date" name="dateDebut" value="<%= ct.getDateDebut() %>" required></div>
+                    <div class="field"><label>Date Fin</label><input type="date" name="dateFin" value="<%= ct.getDateFin() %>" required></div>
+                    <div class="field field-full"><label>Montant Total (MAD)</label><input type="number" step="0.01" name="montantTotal" value="<%= ct.getMontantTotal() %>" required></div>
+                </div>
             </div>
-            <div class="champs">
-                <label>Date Fin</label><br>
-                <input type="date" name="dateFin" value="<%= ct.getDateFin() %>">
+            <div class="form-section">
+                <div class="section-title"><i class="fas fa-link"></i> Association</div>
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Client</label>
+                        <select name="idClient">
+                            <% for (Client cl : clients) { %>
+                            <option value="<%= cl.getId() %>" <%= cl.getId() == ct.getIdClient() ? "selected" : "" %>>
+                                <%= cl.getNom() %> <%= cl.getPrenom() %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Voiture</label>
+                        <select name="idVoiture">
+                            <% for (Voiture v : voitures) { %>
+                            <option value="<%= v.getId() %>" <%= v.getId() == ct.getIdVoiture() ? "selected" : "" %>>
+                                <%= v.getMarque() %> <%= v.getModele() %> — <%= v.getImmatriculation() %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="champs">
-                <label>Montant Total (MAD)</label><br>
-                <input type="number" step="0.01" name="montantTotal" value="<%= ct.getMontantTotal() %>">
+            <div class="form-actions">
+                <a href="ServletContrat" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save" style="margin-right:0.5rem;"></i>Enregistrer</button>
             </div>
-            <div class="champs">
-                <label>Client</label><br>
-                <select name="idClient">
-                    <% for (Client cl : clients) { %>
-                    <option value="<%= cl.getId() %>"
-                        <%= cl.getId() == ct.getIdClient() ? "selected" : "" %>>
-                        <%= cl.getNom() %> <%= cl.getPrenom() %>
-                    </option>
-                    <% } %>
-                </select>
-            </div>
-            <div class="champs">
-                <label>Voiture</label><br>
-                <select name="idVoiture">
-                    <% for (Voiture v : voitures) { %>
-                    <option value="<%= v.getId() %>"
-                        <%= v.getId() == ct.getIdVoiture() ? "selected" : "" %>>
-                        <%= v.getMarque() %> <%= v.getModele() %> - <%= v.getImmatriculation() %>
-                    </option>
-                    <% } %>
-                </select>
-            </div>
-        </div>
-        <input type="submit" value="Modifier">
-    </form>
+        </form>
+    </div>
 </div>
 <%@ include file="footer.jsp" %>
 </body>

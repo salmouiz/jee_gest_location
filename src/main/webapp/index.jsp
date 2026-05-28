@@ -3,65 +3,32 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Gestion Location Voiture</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 60px 20px;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            padding: 40px 30px;
-            text-align: center;
-            width: 200px;
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card .icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-        .welcome {
-            text-align: center;
-            padding: 40px;
-            color: #3f5c7a;
-        }
-    </style>
+    <title>AysiCar | Accueil</title>
 </head>
 <body>
 <%@ include file="header.jsp" %>
-
-<div class="welcome">
-    <h1>Bienvenue dans le système de gestion de location</h1>
-    <p>Choisissez un module pour commencer</p>
+<div class="main-content" style="text-align: center; padding-top: 4rem;">
+    <div class="page-label" style="text-align:center;">Bienvenue</div>
+    <h1 style="font-family:'Playfair Display',serif; font-size:3rem; color:var(--noir); margin-bottom:0.5rem;">AysiCar</h1>
+    <p style="color:var(--gris); font-size:1rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:3rem;">Système de gestion de location</p>
+    <div style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-top:2rem;">
+        <a href="ServletVoiture" style="background:var(--blanc); border:1px solid #e8e8e3; padding:2.5rem 2rem; text-decoration:none; color:var(--noir); min-width:180px; position:relative; transition:all 0.3s ease;">
+            <div style="font-size:2.5rem; color:var(--or); margin-bottom:1rem;"><i class="fas fa-car"></i></div>
+            <div style="font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:0.5rem;">Voitures</div>
+            <div style="font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px;">Gérer le parc</div>
+        </a>
+        <a href="ServletClient" style="background:var(--blanc); border:1px solid #e8e8e3; padding:2.5rem 2rem; text-decoration:none; color:var(--noir); min-width:180px; position:relative; transition:all 0.3s ease;">
+            <div style="font-size:2.5rem; color:var(--or); margin-bottom:1rem;"><i class="fas fa-users"></i></div>
+            <div style="font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:0.5rem;">Clients</div>
+            <div style="font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px;">Gérer les clients</div>
+        </a>
+        <a href="ServletContrat" style="background:var(--blanc); border:1px solid #e8e8e3; padding:2.5rem 2rem; text-decoration:none; color:var(--noir); min-width:180px; position:relative; transition:all 0.3s ease;">
+            <div style="font-size:2.5rem; color:var(--or); margin-bottom:1rem;"><i class="fas fa-file-contract"></i></div>
+            <div style="font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:0.5rem;">Contrats</div>
+            <div style="font-size:0.75rem; color:var(--gris); text-transform:uppercase; letter-spacing:1px;">Gérer les locations</div>
+        </a>
+    </div>
 </div>
-
-<div class="cards">
-    <a class="card" href="ServletVoiture">
-        <div class="icon">🚗</div>
-        Voitures
-    </a>
-    <a class="card" href="ServletClient">
-        <div class="icon">👤</div>
-        Clients
-    </a>
-    <a class="card" href="ServletContrat">
-        <div class="icon">📋</div>
-        Contrats
-    </a>
-</div>
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>
