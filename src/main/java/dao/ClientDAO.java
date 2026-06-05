@@ -34,7 +34,7 @@ public class ClientDAO implements CommonDAO<Client> {
     @Override
     public void add(Client obj) {
         Connection c = ConnectDB.getConnection();
-        String query = "INSERT INTO client (nom, prenom, cin, email, telephone, ville) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO client (id, nom, prenom, cin, email, telephone, ville) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = c.prepareStatement(query);
             ps.setId(1, obj.getId());
