@@ -33,7 +33,7 @@ public class ContratDAO implements CommonDAO<Contrat> {
     @Override
     public void add(Contrat obj) {
         Connection c = ConnectDB.getConnection();
-        String query = "INSERT INTO contrat (date_debut, date_fin, montant_total, id_client, id_voiture) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO contrat (id, date_debut, date_fin, montant_total, id_client, id_voiture) VALUES (?, ?, ?, ?, ?, ?)";
         try{
             PreparedStatement ps = c.prepareStatement(query);
             ps.setId(1, obj.getId());
