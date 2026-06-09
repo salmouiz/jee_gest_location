@@ -36,7 +36,7 @@ public class VoitureDAO implements CommonDAO<Voiture> {
         String query = "INSERT INTO voiture (id,marque, modele, immatriculation, prix_par_jour, disponible) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = c.prepareStatement(query);
-            ps.setId(1, obj.getId());
+            ps.setInt(1, obj.getId());
             ps.setString(2, obj.getMarque());
             ps.setString(3, obj.getModele());
             ps.setString(4, obj.getImmatriculation());
@@ -64,12 +64,12 @@ public class VoitureDAO implements CommonDAO<Voiture> {
         String query = "UPDATE voiture SET marque=?, modele=?, immatriculation=?, prix_par_jour=?, disponible=? WHERE id=?";
         try {
             PreparedStatement ps = c.prepareStatement(query);
-            ps.setInt(1, obj.getId());
-            ps.setString(2, obj.getMarque());
-            ps.setString(3, obj.getModele());
-            ps.setString(4, obj.getImmatriculation());
-            ps.setDouble(5, obj.getPrixParJour());
-            ps.setBoolean(6, obj.isDisponible());
+            ps.setString(1, obj.getMarque());
+            ps.setString(2, obj.getModele());
+            ps.setString(3, obj.getImmatriculation());
+            ps.setDouble(4, obj.getPrixParJour());
+            ps.setBoolean(5, obj.isDisponible());
+            ps.setInt(6, obj.getId());
             
             ps.executeUpdate();
         } catch (SQLException e) { e.printStackTrace(); }
@@ -83,9 +83,9 @@ public class VoitureDAO implements CommonDAO<Voiture> {
         try {
             PreparedStatement ps = c.prepareStatement(query);
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery()
+            ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                Voiture v = new Voiture();
+                v = new Voiture();
                 v.setId(rs.getInt("id"));
                 v.setMarque(rs.getString("marque"));
                 v.setModele(rs.getString("modele"));

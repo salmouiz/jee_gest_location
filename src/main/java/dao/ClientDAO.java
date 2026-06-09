@@ -37,7 +37,7 @@ public class ClientDAO implements CommonDAO<Client> {
         String query = "INSERT INTO client (id, nom, prenom, cin, email, telephone, ville) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = c.prepareStatement(query);
-            ps.setId(1, obj.getId());
+            ps.setInt(1, obj.getId());
             ps.setString(2, obj.getNom());
             ps.setString(3, obj.getPrenom());
             ps.setString(4, obj.getCin());
@@ -69,14 +69,14 @@ public class ClientDAO implements CommonDAO<Client> {
         Connection c = ConnectDB.getConnection();
         String query = "UPDATE client SET nom=?, prenom=?, cin=?, email=?, telephone=?, ville=? WHERE id=?";
         try {
-            PreparedStatement ps = c.prepareStatement(query));
-            ps.setInt(1, obj.getId());
-            ps.setString(2, obj.getNom());
-            ps.setString(3, obj.getPrenom());
-            ps.setString(4, obj.getCin());
-            ps.setString(5, obj.getEmail());
-            ps.setString(6, obj.getTelephone());
-            ps.setString(7, obj.getVille());
+            PreparedStatement ps = c.prepareStatement(query);
+            ps.setString(1, obj.getNom());
+            ps.setString(2, obj.getPrenom());
+            ps.setString(3, obj.getCin());
+            ps.setString(4, obj.getEmail());
+            ps.setString(5, obj.getTelephone());
+            ps.setString(6, obj.getVille());
+            ps.setInt(7, obj.getId());
             ps.executeUpdate();
         } catch (SQLException e) { e.printStackTrace(); }
     }
@@ -87,9 +87,9 @@ public class ClientDAO implements CommonDAO<Client> {
         String query = "SELECT * FROM client WHERE id = ?";
         Client cl = null;
         try {
-            PreparedStatement ps = c.prepareStatement(query));
+            PreparedStatement ps = c.prepareStatement(query);
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery()
+            ResultSet rs = ps.executeQuery();
                 if (rs.next()){
                     cl = new Client();
                     cl.setId(rs.getInt("id"));
@@ -101,7 +101,6 @@ public class ClientDAO implements CommonDAO<Client> {
                     cl.setVille(rs.getString("ville"));
                 }
                 ps.close();
-            }
         } catch (SQLException e) { e.printStackTrace(); }
         return cl;
     }

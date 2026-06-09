@@ -36,7 +36,7 @@ public class ContratDAO implements CommonDAO<Contrat> {
         String query = "INSERT INTO contrat (id, date_debut, date_fin, montant_total, id_client, id_voiture) VALUES (?, ?, ?, ?, ?, ?)";
         try{
             PreparedStatement ps = c.prepareStatement(query);
-            ps.setId(1, obj.getId());
+            ps.setInt(1, obj.getId());
             ps.setDate(2, obj.getDateDebut());
             ps.setDate(3, obj.getDateFin());
             ps.setDouble(4, obj.getMontantTotal());
@@ -64,12 +64,12 @@ public class ContratDAO implements CommonDAO<Contrat> {
         String query = "UPDATE contrat SET date_debut=?, date_fin=?, montant_total=?, id_client=?, id_voiture=? WHERE id=?";
         try {
             PreparedStatement ps = c.prepareStatement(query);
-            ps.setInt(1, obj.getId());
-            ps.setDate(2, obj.getDateDebut());
-            ps.setDate(3, obj.getDateFin());
-            ps.setDouble(4, obj.getMontantTotal());
-            ps.setInt(5, obj.getIdClient());
-            ps.setInt(6, obj.getIdVoiture());
+            ps.setDate(1, obj.getDateDebut());
+            ps.setDate(2, obj.getDateFin());
+            ps.setDouble(3, obj.getMontantTotal());
+            ps.setInt(4, obj.getIdClient());
+            ps.setInt(5, obj.getIdVoiture());
+            ps.setInt(6, obj.getId());
             ps.executeUpdate();
         } catch (SQLException e) { e.printStackTrace(); }
     }
@@ -82,7 +82,7 @@ public class ContratDAO implements CommonDAO<Contrat> {
         try {
             PreparedStatement ps = c.prepareStatement(query);
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery()
+            ResultSet rs = ps.executeQuery();
             if (rs.next()){
                 ct = new Contrat();
 				ct.setId(rs.getInt("id"));
