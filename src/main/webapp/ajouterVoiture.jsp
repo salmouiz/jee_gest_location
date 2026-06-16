@@ -271,17 +271,7 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-inner">
-            <div class="logo">
-                <div class="logo-icon"><i class="fas fa-car-side"></i></div>
-                <div>
-                    <div class="logo-text">Aysi<span>Car</span></div>
-                    <div class="header-tag">Location Premium</div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <%@ include file="header.jsp" %>
 
     <nav class="nav">
         <div class="nav-inner">
@@ -346,11 +336,7 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-line"></div>
-        <div class="footer-brand">AysiCar</div>
-        <div class="footer-copy">© 2026 — Tous droits réservés</div>
-    </footer>
+    <%@ include file="footer.jsp" %>
 
 </body>
 </html>

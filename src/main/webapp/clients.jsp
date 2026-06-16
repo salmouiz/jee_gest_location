@@ -6,7 +6,6 @@
 <body>
 <%@ include file="header.jsp" %>
 <%
-    @SuppressWarnings("unchecked")
     List<Client> liste = (List<Client>) request.getAttribute("listClients");
     if (liste == null) liste = new ArrayList<>();
 %>

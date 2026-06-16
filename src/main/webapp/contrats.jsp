@@ -10,11 +10,8 @@
 <body>
 <%@ include file="header.jsp" %>
 <%
-    @SuppressWarnings("unchecked")
     List<Contrat> liste = (List<Contrat>) request.getAttribute("listContrats");
-    @SuppressWarnings("unchecked")
     List<Client> clients = (List<Client>) request.getAttribute("listClients");
-    @SuppressWarnings("unchecked")
     List<Voiture> voitures = (List<Voiture>) request.getAttribute("listVoitures");
     if (liste == null) liste = new ArrayList<>();
     if (clients == null) clients = new ArrayList<>();

@@ -20,9 +20,7 @@
 <body>
 <%@ include file="header.jsp" %>
 <%
-    @SuppressWarnings("unchecked")
     List<Client> clients = (List<Client>) request.getAttribute("listClients");
-    @SuppressWarnings("unchecked")
     List<Voiture> voitures = (List<Voiture>) request.getAttribute("listVoitures");
     if (clients == null) clients = new ArrayList<>();
     if (voitures == null) voitures = new ArrayList<>();
