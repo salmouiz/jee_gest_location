@@ -273,15 +273,6 @@
 
     <%@ include file="header.jsp" %>
 
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="ServletClient" class="nav-link"><i class="fas fa-users"></i> Clients</a>
-            <a href="ServletVoiture" class="nav-link active"><i class="fas fa-car"></i> Véhicules</a>
-            <a href="ServletContrat" class="nav-link"><i class="fas fa-file-contract"></i> Contrats</a>
-            <a href="#" class="nav-link"><i class="fas fa-calendar"></i> Réservations</a>
-        </div>
-    </nav>
-
     <main class="main">
         <div class="page-header">
             <div class="page-label">Gestion Voitures</div>
